@@ -1,2 +1,3 @@
-# Bing-Bot
-A Bot that earns Bing Rewards Points
+# Bing-Bot (WIP)
+A Bing Reward Earning Bot
+
