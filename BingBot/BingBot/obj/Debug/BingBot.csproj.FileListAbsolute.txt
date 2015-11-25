@@ -1,1 +1,9 @@
 C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\bin\Debug\BingBot.exe.config
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\bin\Debug\BingBot.exe
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\bin\Debug\BingBot.pdb
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.csprojResolveAssemblyReference.cache
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.Frm_Bot.resources
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.Properties.Resources.resources
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.csproj.GenerateResource.Cache
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.exe
+C:\Users\Kurtis\git\Bing-Bot\BingBot\BingBot\obj\Debug\BingBot.pdb

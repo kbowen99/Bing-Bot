@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BingBot
 {
-    public partial class Form1 : Form
+    public partial class Frm_Bot : Form
     {
-        public Form1()
+        public Frm_Bot()
         {
             InitializeComponent();
         }
