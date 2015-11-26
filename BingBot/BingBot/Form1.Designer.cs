@@ -40,13 +40,14 @@
             this.Web_Bing.Location = new System.Drawing.Point(12, 41);
             this.Web_Bing.MinimumSize = new System.Drawing.Size(20, 20);
             this.Web_Bing.Name = "Web_Bing";
+            this.Web_Bing.ScriptErrorsSuppressed = true;
             this.Web_Bing.Size = new System.Drawing.Size(1160, 333);
             this.Web_Bing.TabIndex = 0;
             // 
             // Prg_Main
             // 
             this.Prg_Main.Location = new System.Drawing.Point(12, 12);
-            this.Prg_Main.Maximum = 30;
+            this.Prg_Main.Maximum = 53;
             this.Prg_Main.Name = "Prg_Main";
             this.Prg_Main.Size = new System.Drawing.Size(1160, 23);
             this.Prg_Main.TabIndex = 1;

@@ -22,21 +22,25 @@ namespace BingBot
 
         private void Frm_Bot_Load(object sender, EventArgs e)
         {
+            //open Bing on Load (for sign in)
             Web_Bing.Navigate("http://www.bing.com/");
-            MessageBox.Show("Please Sign Into Bing Rewards (User Info is Dumped After Program Completes)");
+            //MessageBox.Show("Please Sign Into Bing Rewards (User Info is Dumped After Program Completes)");
         }
 
         private void Btn_Start_Click(object sender, EventArgs e)
         {
+            //The Button of multiple options
             if (Btn_Start.Text == "Start")
             {
                 MessageBox.Show("WARNING: This program assumes you are signed into bing within the web element, and will only work if you are", "Warning!");
                 Tmr_Run.Start();
                 Btn_Start.Text = "Pause";
-            } else if (Btn_Start.Text == "Manual Point Earning")
+            }
+            else if (Btn_Start.Text == "Manual Point Earning")
             {
                 Web_Bing.Navigate("https://www.bing.com/rewards/dashboard");
-            } else if (Btn_Start.Text == "Pause")
+            }
+            else if (Btn_Start.Text == "Pause")
             {
                 Tmr_Run.Enabled = !Tmr_Run.Enabled;
             }
@@ -44,6 +48,7 @@ namespace BingBot
 
         private void Tmr_Run_Tick(object sender, EventArgs e)
         {
+            //1-31 = Desktop Searches
             if (Searches < 31)
             {
                 try
@@ -57,8 +62,28 @@ namespace BingBot
                     Console.WriteLine("Page Navigation Failed, Retrying");
                 }
 
-            } else
+            } //32-52 = Mobile Searches
+            else if (Searches < 53)
             {
+                String webLink = "http://www.m.bing.com/search?q=" + RandySearch();
+                //Web_Bing.Navigate(webLink);
+                //Client Spoofing (+Window Sizing)
+                Web_Bing.Width = 320;
+                Prg_Main.Width = 320;
+                Btn_Start.Width = 320;
+                this.Width = 360;
+                Web_Bing.Navigate(webLink, null, null, string.Format("User-Agent: {0}", "Opera/9.80 (J2ME/MIDP; Opera Mini/9 (Compatible; MSIE:9.0; iPhone; BlackBerry9700; AppleWebKit/24.746; U; en) Presto/2.5.25 Version/10.54"));
+                Searches++;
+                Prg_Main.Value = Searches;
+            }//manual points
+            else if (Searches > 52)
+            {
+                //Window Sizing & Cleanup
+                Web_Bing.Navigate("https://www.bing.com/rewards/dashboard");
+                Web_Bing.Width = 1160;
+                Prg_Main.Width = 1160;
+                Btn_Start.Width = 1160;
+                this.Width = 1200;
                 Tmr_Run.Stop();
                 Btn_Start.Text = "Manual Point Earning";
                 MessageBox.Show("Auto Point Earning Complete");
@@ -67,11 +92,15 @@ namespace BingBot
 
         private String RandySearch()
         {
+            //Random Question Generator
             String[] Question =
             {
                 "How Far Can A",
                 "What is A",
-                "How Do You"
+                "How Do You",
+                "Where is",
+                "",
+                "Why Do"
             };
 
             String[] Noun =
@@ -92,7 +121,27 @@ namespace BingBot
                 "Game",
                 "SWAG",
                 "Flight",
-                "Airplane"
+                "Airplane",
+                "Fallout 4",
+                "IPod",
+                "Windows",
+                "Spiderman",
+                "Engine",
+                "Kayak",
+                "Wiki",
+                "Earth",
+                "Luigi",
+                "Mario",
+                "Pizza",
+                "Nintendo",
+                "Apple",
+                "3d Printer",
+                "music",
+                "Pandora",
+                "Minecraft",
+                "The Sims",
+                "TechNet",
+                "Wikipedia"
             };
 
             String[] Action =
@@ -112,7 +161,17 @@ namespace BingBot
                 "Repair",
                 "Game",
                 "SWAG",
-                "Fire"
+                "Fire",
+                "Search",
+                "Meow",
+                "urbandictionary",
+                "Wiki",
+                "Forumn",
+                "Print",
+                "Skype",
+                "Netflix",
+                "Download",
+                "Free"
             };
 
             return Question[rndGen.Next(0, Question.Length)] + " " + Noun[rndGen.Next(0, Noun.Length)] + " " + Action[rndGen.Next(0, Action.Length)];
